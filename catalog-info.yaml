@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: chat-app-rhoai 
+  description: Secure Supply Chain Example for Chatbot Application example with LLM enabled chat applications   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:
+    # ArgoCD apps from this template used rhtap-gitops as the grouping
+    argocd/app-selector: rhtap/gitops=chat-app-rhoai  
+    janus-idp.io/tekton: chat-app-rhoai 
+    backstage.io/kubernetes-id: chat-app-rhoai 
+    backstage.io/techdocs-ref: dir:. 
+    quay.io/repository-slug: jctestorg/chat-app-rhoai
+  tags: ["ai", "llamacpp", "vllm", "python"] 
+spec:
+  type: service
+  owner: user:guest 
+  lifecycle: experimental
+ 
